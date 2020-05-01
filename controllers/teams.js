@@ -7,13 +7,17 @@ const getAllTeams = async (request, response) => {
 }
 
 const getTeamById = async (request, response) => {
-  const { id } = request.params
+  try {
+    const { id } = request.params
 
-  const matchingTeam = await models.Teams.findOne({ where: { id } })
+    const matchingTeam = await models.Teams.findOne({ where: { id } })
 
-  return matchingTeam
-    ? response.send(matchingTeam)
-    : response.sendStatus(404)
+    return matchingTeam
+      ? response.send(matchingTeam)
+      : response.sendStatus(404)
+  } catch (error) {
+    return response.status(500).send('Unable to retrieve team, please try again')
+  }
 }
 
 const saveNewTeam = async (request, response) => {

@@ -31,4 +31,11 @@ const createTeam = {
   division: 'North'
 }
 
-module.exports = { teamsList, singleTeam, createTeam }
+const missingTeamInfo = {
+  mascot: 'Titans',
+  abbreviation: 'TEN',
+  conference: 'AFC',
+  division: 'North'
+}
+
+module.exports = { teamsList, singleTeam, createTeam, missingTeamInfo }
